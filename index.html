@@ -359,11 +359,29 @@
 
   /* ── Custom Dropdown (추가된 디자인) ── */
   .custom-dropdown { position: relative; margin-top: 24px; z-index: 20; }
-  .dropdown-btn { padding: 8px 14px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; font-size: 13px; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
-  .dropdown-btn:hover { background: rgba(255,255,255,0.15); }
+  .dropdown-btn {
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(250,248,243,1);
+    color: #000000;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .dropdown-btn:hover { background: rgba(250,248,243,0.9); }
   .dropdown-menu { 
-    display: none; position: absolute; top: 100%; left: 0; margin-top: 8px; 
-    width: 260px; background: #fff; border-radius: 8px; 
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 8px; 
+    width: 260px; 
+    background: #fff;
+    border-radius: 8px; 
     box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
     border: 1px solid var(--border); text-align: left; 
     max-height: 240px; /* 5개 정도 보이게 높이 제한 */
