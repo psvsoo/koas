@@ -1184,6 +1184,10 @@ function Dashboard({payload, onLogout}){
         </nav>
         <div className="side-foot">
           <button className="btn-info-dl" title="Information 안내 (PDF)" onClick={()=>{
+            if (window.innerWidth < 1024) {
+              alert("모바일에서는 PDF 다운로드 기능이 지원되지 않습니다. PC에서 이용해주세요.");
+              return;
+            }
             document.body.classList.add('print-glossary-only');
             const cleanup=()=>{ document.body.classList.remove('print-glossary-only'); window.removeEventListener('afterprint',cleanup); };
             window.addEventListener('afterprint',cleanup);
