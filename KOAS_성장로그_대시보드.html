@@ -821,6 +821,10 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info}){
   const wr = dept.writeRate || {written:withLogs.length,total:emps.length,rate: emps.length?withLogs.length/emps.length:0};
   const printAll = ()=>{
     setExpandAll(true);
+    if (wimdow.innerWidth < 768) {
+      alert("모바일에서는 전체 인쇄 기능이 지원되지 않습니다. PC에서 이용해주세요.");
+      return;
+    }
     setTimeout(()=>{
       document.body.classList.add('print-employees-only');
       const cleanup=()=>{ document.body.classList.remove('print-employees-only'); window.removeEventListener('afterprint',cleanup); };
@@ -1001,7 +1005,13 @@ function EmployeeDetail({e, deptName, info, onBack, embedded}){
       {!embedded && (
         <div className="col12 noprint" style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:12,flexWrap:"wrap"}}>
           <button className="btn-ghost" onClick={onBack}><ArrowLeft s={16}/> 목록으로</button>
-          <button className="btn-weak" onClick={()=>window.print()}><Printer s={15}/> 인쇄</button>
+          <button className="btn-weak" onClick={()=>{
+            if (window.innerWidth < 768) {
+              alert("모바일에서는 인쇄 기능이 지원되지 않습니다. PC에서 이용해주세요.");
+              return;
+            }
+            window.print();
+          }}><Printer s={15}/> 인쇄</button>
         </div>
       )}
       <div className={embedded?"":"col12"}>
