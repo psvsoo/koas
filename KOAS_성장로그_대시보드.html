@@ -89,6 +89,7 @@ svg, svg text{font-family:inherit;}
   .sidebar.collapsed .side-foot{align-items:center;padding:14px 10px;}
   .sidebar.collapsed .btn-info-dl,
   .sidebar.collapsed .btn-logout{width:48px;padding:0;}
+  .sidebar.collapsed .side-credit{display:none;}
 }
 .content{flex:1;min-width:0;padding:24px 32px 48px;max-width:1280px;margin:0 auto;}
 
@@ -261,6 +262,8 @@ svg, svg text{font-family:inherit;}
 .login-hero{flex:1.05;background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:center;padding:72px;position:relative;}
 .login-hero-inner{max-width:440px;}
 .login-form{flex:1;display:flex;align-items:center;justify-content:center;padding:40px;background:var(--canvas);}
+.login-credit-inline{font-size:12px;color:rgba(255,255,255,0.55);margin-top:6px;letter-spacing:0.01em;}
+.side-credit{font-size:12px;color:rgba(255,255,255,0.42);line-height:1.5;text-align:center;padding:8px 6px 0;}
 .input-lg{height:52px;font-size:15px;border-radius:12px;}
 .btn-lg{height:52px;font-size:16px;border-radius:12px;}
 
@@ -1195,6 +1198,10 @@ function Dashboard({payload, onLogout}){
             setTimeout(()=>window.print(), 60);
           }}><InfoIcon s={15}/> <span className="navtext">Information 안내 (PDF)</span></button>
           <button className="btn-logout" title="로그아웃" onClick={onLogout}><LogOut s={16}/> <span className="navtext">로그아웃</span></button>
+          <div className="side-credit">
+            <div>Architecture &amp; Build</div>
+            <div>운영기획실 &amp; 박수빈</div>
+          </div>
         </div>
       </aside>
       <main className="content">{content}<InfoGlossary/></main>
@@ -1220,6 +1227,7 @@ function Login({onLogin}){
         <div className="login-hero-inner">
           <h1 className="t-hero" style={{color:"#fff"}}>KOAS 구성원<br/>성장 로그</h1>
           <p className="t-body" style={{color:"rgba(255,255,255,0.82)",marginTop:14}}>2026년 05월 · Powered by Agent 최복동</p>
+          <p className="login-credit-inline">Architecture &amp; Build | 운영기획실 &amp; 박수빈</p>
           <p className="t-body" style={{color:"rgba(255,255,255,0.92)",marginTop:30,maxWidth:420,lineHeight:1.75,borderLeft:"3px solid var(--lime)",paddingLeft:14,wordBreak:"keep-all"}}>{LEARN_LINE}</p>
         </div>
       </div>
