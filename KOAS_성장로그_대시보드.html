@@ -221,6 +221,7 @@ svg, svg text{font-family:inherit;}
 /* employee detail */
 .emp-detail-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;
   padding-bottom:18px;border-bottom:1px solid var(--border);margin-bottom:20px;}
+.print-signoff{display:none;}
 .sec-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .sec-head-icon{width:24px;height:24px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
 .sec-head-icon.log{background:var(--surface);color:var(--grey-600);}
@@ -305,6 +306,9 @@ svg, svg text{font-family:inherit;}
   .sidebar,.noprint,.btn-weak,.btn-ghost,.btn-ghost-light{display:none !important;}
   /* 모바일 전용 UI(상단바/오버레이) 인쇄 시 강제 숨김 — Edge가 인쇄 폭을 좁게 인식해 모바일 브레이크포인트가 걸리는 경우 대비 */
   .mobile-topbar,.mobile-overlay{display:none !important;}
+  .print-signoff{display:flex !important;flex-direction:column;width:130px;flex-shrink:0;border:1px solid var(--heading);border-radius:8px;overflow:hidden;}
+  .print-signoff-label{text-align:center;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--heading);background:var(--surface);padding:6px 0;border-bottom:1px solid var(--border);}
+  .print-signoff-box{height:64px;}
   .shell{display:block;max-width:none;}
   .content{max-width:none !important;padding:0 !important;}
   /* 모바일 브레이크포인트(max-width:760px/1100px)가 인쇄 시에도 걸리는 경우를 대비해 데스크톱 레이아웃 강제 고정 */
@@ -1034,6 +1038,10 @@ function EmployeeDetail({e, deptName, info, onBack, embedded}){
                 <span className="body-sm muted">{e.rank}</span>
               </div>
               <p className="body-sm muted" style={{marginTop:4}}>{e.team}</p>
+            </div>
+            <div className="print-signoff">
+              <div className="print-signoff-label">최 종 평 가</div>
+              <div className="print-signoff-box"></div>
             </div>
           </div>
 
