@@ -894,7 +894,7 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info}){
       <Card className="col6 dept-top-item">
         <SectionTitle>본부 성장 레벨 요약</SectionTitle>
         <div style={{display:"flex",flexDirection:"column",gap:10}}>
-          {dept.levels.map((l,i)=>(
+          {[...dept.levels].reverse().map((l,i)=>(
             <div key={i} style={{display:"flex",alignItems:"center",gap:12}}>
               <span className="body-sm" style={{width:140,color:"var(--grey-600)"}}>{l.level}</span>
               <div className="track" style={{flex:1}}><div className="fill" style={{width:(l.deptRatio*100)+"%",background:"var(--data-navy)"}}/></div>
@@ -1078,7 +1078,7 @@ function EmployeeDetail({e, deptName, info, onBack, embedded}){
                 <div className="diag-group-label" style={{color:"var(--grey-600)"}}>성장 시그널</div>
                 <div className="diag-group-inner">
                   <DiagCard label="1차 성장 시그널" infoText={INFO.signal} color="var(--grey-700)" value={e.signal1}/>
-                  <DiagCard label="2차 성장 시그널" infoText={INFO.signal} color="var(--emerald-hover)" value={e.signal2}/>
+                  <DiagCard label="2차 성장 시그널" infoText={INFO.signal} color="var(--grey-700)" value={e.signal2}/>
                 </div>
               </div>
             </div>
