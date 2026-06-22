@@ -896,13 +896,17 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info}){
       <Card className="col6 dept-top-item">
         <SectionTitle>본부 성장 레벨 요약</SectionTitle>
         <div style={{display:"flex",flexDirection:"column",gap:10}}>
-          {[...dept.levels].reverse().map((l,i)=>(
+          {[...dept.levels].reverse().map((l,i)=>{
+            const idx=LEVEL_IDX(l.level);
+            const top=idx>=3;
+            return (
             <div key={i} style={{display:"flex",alignItems:"center",gap:12}}>
-              <span className="body-sm" style={{width:140,color:"var(--grey-600)"}}>{l.level}</span>
+              <span className="body-sm" style={{width:140,color:"var(--grey-600)",fontWeight:top?700:undefined}}>{l.level}</span>
               <div className="track" style={{flex:1}}><div className="fill" style={{width:(l.deptRatio*100)+"%",background:"var(--data-navy)"}}/></div>
               <span className="num body-sm" style={{width:64,textAlign:"right",color:"var(--heading)"}}>{l.count}명</span>
             </div>
-          ))}
+            );
+          })}
         </div>
       </Card>
 
@@ -1021,7 +1025,10 @@ function LevelTag({name}){
 
 /* ============ Employee detail ============ */
 function EmployeeDetail({e, deptName, info, onBack, embedded}){
-  const diffColor = e.difficulty==="상"?"var(--data-navy)": e.difficulty==="중"?"#4a6794":"var(--grey-600)";
+  const diffColor = e.difficulty==="상"?"var(--data-navy)": e.difficulty==="중"?"#4a6794":"#7089ad";
+  // 목록 뱃지(LevelTag) 글자색과 동일하게 맞춤: 정체→탁월→변화선도
+  const LEVEL2_COLORS = ["#dc2626","#b45309","var(--data-navy)","#15803d","var(--forest)"];
+  const level2Color = LEVEL2_COLORS[LEVEL_IDX(e.level2)] || "var(--forest)";
   const DiagCard = ({label, infoText, color, value, highlight}) => (
     <div className={"diag-card"+(highlight?" diag-card-final":"")}>
       <div className="diag-label">{label}<InfoTip text={infoText}/></div>
@@ -1073,7 +1080,7 @@ function EmployeeDetail({e, deptName, info, onBack, embedded}){
                 <div className="diag-group-inner arrow">
                   <DiagCard label="1차 성장 레벨(행동 기준)" infoText={INFO.level1} color="var(--grey-700)" value={e.level1}/>
                   <div className="diag-arrow">→</div>
-                  <DiagCard label="2차 성장 레벨(행동 검증)" infoText={INFO.level2} color="var(--forest)" value={e.level2} highlight/>
+                  <DiagCard label="2차 성장 레벨(행동 검증)" infoText={INFO.level2} color={level2Color} value={e.level2} highlight/>
                 </div>
               </div>
               <div className="diag-group">
