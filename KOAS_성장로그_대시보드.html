@@ -174,11 +174,13 @@ svg, svg text{font-family:inherit;}
 .badge-moderate{background:rgba(232,163,23,0.14);color:#b45309;}
 .badge-urgent{background:rgba(240,68,82,0.12);color:#dc2626;}
 .badge-neutral{background:var(--surface);color:var(--grey-600);}
+.badge-stable{background:#e8eff7;color:var(--data-navy);}
+.badge-lead{background:rgba(38,71,58,0.12);color:var(--forest);}
 /* difficulty pill (list) */
 .diff-pill{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;font-size:12px;font-weight:700;}
 .diff-pill.diff-상{background:var(--data-navy);color:#fff;}
-.diff-pill.diff-중{background:#e8eff7;color:var(--data-navy);}
-.diff-pill.diff-하{background:var(--surface);color:var(--grey-600);}
+.diff-pill.diff-중{background:#4a6794;color:#fff;}
+.diff-pill.diff-하{background:var(--navy-light);color:var(--data-navy);}
 
 /* buttons */
 .btn-primary{height:44px;border-radius:12px;background:var(--emerald);color:#fff;border:none;font-size:15px;font-weight:600;cursor:pointer;}
@@ -187,7 +189,7 @@ svg, svg text{font-family:inherit;}
 .btn-weak{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:10px;background:rgba(30,142,90,0.12);color:var(--emerald-hover);border:none;font-size:14px;font-weight:600;cursor:pointer;}
 .btn-ghost{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:10px;background:transparent;color:var(--grey-600);border:1px solid var(--border);font-size:14px;font-weight:600;cursor:pointer;}
 .btn-ghost:hover{background:var(--surface);}
-.btn-ghost-light{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:9px;background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25);font-size:13px;font-weight:600;cursor:pointer;}
+.btn-ghost-light{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:9px;background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;}
 .btn-ghost-light:hover{background:rgba(255,255,255,0.25);}
 
 /* input */
@@ -213,7 +215,7 @@ svg, svg text{font-family:inherit;}
 .forestcard{background:var(--forest);border-radius:16px;padding:28px;}
 
 /* employee section head */
-.emp-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;
+.emp-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
   background:var(--data-navy);border-radius:16px 16px 0 0;padding:16px 20px;}
 .emp-title{display:flex;align-items:center;gap:8px;}
 .emp-actions{display:flex;gap:8px;}
@@ -1013,7 +1015,7 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info}){
 
 function LevelTag({name}){
   const idx=LEVEL_IDX(name);
-  const tones=["neutral","moderate","info","success","success"];
+  const tones=["urgent","moderate","stable","success","lead"];
   return <Badge tone={tones[idx]||"neutral"}>{name||"–"}</Badge>;
 }
 
