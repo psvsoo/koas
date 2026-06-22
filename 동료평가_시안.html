@@ -174,11 +174,13 @@ svg, svg text{font-family:inherit;}
 .badge-moderate{background:rgba(232,163,23,0.14);color:#b45309;}
 .badge-urgent{background:rgba(240,68,82,0.12);color:#dc2626;}
 .badge-neutral{background:var(--surface);color:var(--grey-600);}
+.badge-stable{background:#e8eff7;color:var(--data-navy);}
+.badge-lead{background:rgba(38,71,58,0.12);color:var(--forest);}
 /* difficulty pill (list) */
 .diff-pill{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:7px;font-size:12px;font-weight:700;}
 .diff-pill.diff-상{background:var(--data-navy);color:#fff;}
-.diff-pill.diff-중{background:#e8eff7;color:var(--data-navy);}
-.diff-pill.diff-하{background:var(--surface);color:var(--grey-600);}
+.diff-pill.diff-중{background:#4a6794;color:#fff;}
+.diff-pill.diff-하{background:var(--navy-light);color:var(--data-navy);}
 
 /* buttons */
 .btn-primary{height:44px;border-radius:12px;background:var(--emerald);color:#fff;border:none;font-size:15px;font-weight:600;cursor:pointer;}
@@ -187,7 +189,7 @@ svg, svg text{font-family:inherit;}
 .btn-weak{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 16px;border-radius:10px;background:rgba(30,142,90,0.12);color:var(--emerald-hover);border:none;font-size:14px;font-weight:600;cursor:pointer;}
 .btn-ghost{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 14px;border-radius:10px;background:transparent;color:var(--grey-600);border:1px solid var(--border);font-size:14px;font-weight:600;cursor:pointer;}
 .btn-ghost:hover{background:var(--surface);}
-.btn-ghost-light{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:9px;background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25);font-size:13px;font-weight:600;cursor:pointer;}
+.btn-ghost-light{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:9px;background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.25);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;flex-shrink:0;}
 .btn-ghost-light:hover{background:rgba(255,255,255,0.25);}
 
 /* input */
@@ -213,7 +215,7 @@ svg, svg text{font-family:inherit;}
 .forestcard{background:var(--forest);border-radius:16px;padding:28px;}
 
 /* employee section head */
-.emp-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;
+.emp-section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
   background:var(--data-navy);border-radius:16px 16px 0 0;padding:16px 20px;}
 .emp-title{display:flex;align-items:center;gap:8px;}
 .emp-actions{display:flex;gap:8px;}
@@ -359,7 +361,7 @@ svg, svg text{font-family:inherit;}
 .emp-tab:hover{background:#e8edea;color:var(--grey-700);}
 .emp-tab:focus,.emp-tab:active{outline:none;box-shadow:none;}
 .emp-tab.active{background:var(--forest);color:#fff;border:none;outline:none;box-shadow:none;}
-.peer-view{display:flex;flex-direction:column;gap:40px;margin-top:20px;background:#f4f6f8;padding:16px;border-radius:14px;}
+.peer-view{display:flex;flex-direction:column;gap:20px;margin-top:20px;background:#f4f6f8;padding:16px;border-radius:14px;}
 .peer-section-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
 .peer-section-head h3{margin:0;font-size:16px;font-weight:700;color:var(--heading);}
 .peer-count-badge{font-size:12px;font-weight:700;background:#e2e8ef;color:var(--grey-700);border-radius:20px;padding:2px 9px;}
@@ -373,28 +375,37 @@ svg, svg text{font-family:inherit;}
 .peer-bar-label{width:110px;font-size:13px;font-weight:600;color:var(--grey-700);flex-shrink:0;}
 .peer-bar-track{flex:1;height:10px;background:var(--border);border-radius:99px;overflow:hidden;}
 .peer-bar-fill{height:100%;background:var(--emerald);border-radius:99px;transition:width .4s;}
-.peer-bar-count{width:28px;font-size:13px;font-weight:700;color:var(--grey-600);text-align:right;}
+.peer-bar-count{width:64px;font-size:13px;font-weight:700;color:var(--grey-600);text-align:right;}
+.peer-bar-count b{color:var(--heading);}
 .peer-comment{background:#fff;border:1px solid var(--border);border-radius:10px;padding:16px 18px;margin-bottom:10px;}
-.peer-comment.growth{border-color:#d4a800;background:#fffbeb;}
 .anon-label{display:inline-block;font-size:12px;font-weight:700;color:var(--grey-600);background:#e8edea;border-radius:6px;padding:1px 7px;margin-bottom:8px;}
 .peer-comment p{margin:0;font-size:14px;line-height:1.6;color:var(--grey-700);}
 .peer-locked{text-align:center;padding:28px;background:#f8f9fa;border-radius:10px;color:var(--muted);font-size:14px;font-weight:600;}
-.perception-gap{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 24px;margin-bottom:20px;}
-.pg-title{font-size:13px;font-weight:700;color:var(--muted);margin-bottom:12px;letter-spacing:0.03em;}
-.pg-row{display:flex;align-items:center;gap:12px;}
-.pg-item{flex:1;text-align:center;padding:14px;border-radius:10px;}
-.pg-item.self{background:#c8e6d4;}
-.pg-item.peer-eval{background:rgba(35,72,118,0.13);}
-.pg-tag{font-size:12px;font-weight:700;color:var(--grey-600);margin-bottom:6px;}
-.pg-value{font-size:16px;font-weight:700;color:var(--heading);}
-.pg-arrow{font-size:22px;color:var(--muted);flex-shrink:0;}
-.pg-hint{margin:14px 0 0;font-size:14px;font-weight:500;color:var(--grey-700);line-height:1.6;border-top:1px solid var(--border);padding-top:12px;}
 .given-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:18px 20px;margin-bottom:10px;}
 .given-label{font-size:12px;font-weight:700;color:var(--emerald-hover);margin-bottom:8px;}
 .given-card p{margin:0 0 8px;font-size:14px;line-height:1.6;color:var(--grey-700);}
 .ai-coach-widget{background:linear-gradient(135deg,#e6f4ec 0%,#f0f7ff 100%);border:1px solid #c8e6d8;border-radius:12px;padding:20px 22px;margin-top:16px;}
 .ai-coach-header{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:700;color:var(--heading);margin-bottom:10px;}
 .ai-coach-body{margin:0;font-size:14px;line-height:1.7;color:var(--grey-700);}
+/* 동료 평가 요약 카드 */
+.peer-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.peer-summary-card{background:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 2px 8px rgba(0,0,0,0.07);}
+.ps-label{font-size:12px;font-weight:700;color:var(--muted);margin-bottom:12px;}
+.ps-value{font-size:22px;font-weight:800;color:var(--heading);line-height:1.2;}
+.ps-value.accent{color:var(--emerald);}
+/* 섹션 그룹 / 칭찬·보완 2단 레이아웃 */
+.peer-group{display:flex;flex-direction:column;gap:16px;}
+.peer-dist-note{margin-left:auto;font-size:12px;color:var(--muted);font-weight:600;}
+.peer-cols{display:flex;gap:16px;align-items:stretch;}
+.peer-col{flex:1;min-width:0;}
+.peer-col-head{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700;color:var(--heading);margin:0 0 16px;}
+.peer-col-head .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.peer-col-head .dot.praise{background:var(--emerald);}
+.peer-col-head .dot.advice{background:#e6912e;}
+.peer-divider{height:1px;background:var(--border);margin:0;}
+.given-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.given-row p{margin:0;}
+@media(max-width:768px){.peer-summary{grid-template-columns:1fr;}.peer-cols{flex-direction:column;}}
 /* 탭 패널 — 화면에서 비활성 탭 숨김, 인쇄 시 모두 노출 */
 .tab-panel-hidden{display:none;}
 /* 버튼·링크 기본 아웃라인 리셋 */
@@ -409,8 +420,14 @@ a:focus,a:active{outline:none;}
   .peer-section{break-inside:avoid;page-break-inside:avoid;box-shadow:none;border:1px solid #bbb;}
   .peer-section-head{break-after:avoid;page-break-after:avoid;}
   .anon-label{background:#ddd !important;color:#333 !important;}
-  .peer-comment.growth{border-color:#bbb !important;background:#fafafa !important;}
+  .peer-cols{break-inside:avoid;page-break-inside:avoid;}
+  .peer-summary-card{box-shadow:none;border:1px solid #bbb;}
+  /* 동료 평가 탭을 새 페이지에서 시작해 성장 로그와 확실히 구분 */
+  .peer-print-block{page-break-before:always;break-before:page;}
+  .print-only{display:block !important;}
+  .peer-print-title{display:flex !important;align-items:center;gap:8px;font-size:18px;font-weight:800;color:#16271f;margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid #16271f;}
 }
+.print-only{display:none;}
 </style>
 </head>
 
@@ -1078,11 +1095,11 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info, isExec=fa
 
 /* ============ peer mock data ============ */
 const PEER_MOCK_POOL = [
-  {n:4,values:[{name:"협업과 소통",count:3},{name:"고객중심",count:2},{name:"주도적 실행",count:2},{name:"장기적 시각",count:1}],comments:["팀 내 갈등 상황에서 중립적으로 중재하며 분위기를 안정시켜줬어요.","고객 문의에 빠르고 친절하게 대응하는 모습이 인상적이었습니다."],growthPoints:["보고서 마감 시한을 한 번 넘긴 적이 있었는데, 일정 관리 역량을 키우면 더 좋을 것 같아요."],aiCoachComment:"동료들은 특히 '협업과 소통' 역량을 높이 평가했습니다. 이 강점을 더 발전시키려면 팀 미팅에서 의견을 적극적으로 정리하는 역할을 맡아보세요. 성장 포인트로 지적된 일정 관리는 작은 체크리스트 습관으로도 큰 변화를 만들 수 있어요 :)",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 A",learnedPoint:"복잡한 데이터를 단순하게 시각화하는 능력을 배웠어요. 저도 다음 보고서에서 적용해 보려고 합니다.",recognizedValue:"주도적 실행"}]},
-  {n:5,values:[{name:"주도적 실행",count:4},{name:"협업과 소통",count:3},{name:"장기적 시각",count:2},{name:"고객중심",count:1}],comments:["어려운 상황에서도 끝까지 책임지고 마무리하는 모습이 인상 깊었어요.","업무 외에도 동료가 막힌 부분에서 자연스럽게 도움을 주더라고요."],growthPoints:["때로는 너무 빠르게 결론을 내리는 경향이 있어요. 다양한 의견을 더 듣는 시간을 가졌으면 해요."],aiCoachComment:"'주도적 실행' 강점이 두드러집니다. 이 에너지를 팀 전체로 확장하려면, 실행 단계에서 주변 동료를 자연스럽게 참여시키는 방식을 고려해 보세요. 성급한 결론에 대한 피드백은 '1분 더 듣기' 습관으로 시작해볼 수 있어요 :)",selfTopValue:"주도적 실행",givenTo:[{anonymousName:"동료 B",learnedPoint:"기한이 촉박한 상황에서 우선순위를 빠르게 정하는 방법을 배웠어요.",recognizedValue:"주도적 실행"},{anonymousName:"동료 C",learnedPoint:"고객 관점으로 문제를 바라보는 시각이 인상적이었어요.",recognizedValue:"고객중심"}]},
-  {n:3,values:[{name:"고객중심",count:2},{name:"협업과 소통",count:2},{name:"장기적 시각",count:1},{name:"주도적 실행",count:1}],comments:["항상 고객 입장에서 먼저 생각하는 태도가 팀 전체에 좋은 영향을 줘요."],growthPoints:["자신의 의견을 좀 더 적극적으로 표현해주면 팀 논의가 더 풍성해질 것 같아요."],aiCoachComment:"고객 중심 사고가 동료들에게 분명하게 인식되고 있어요. 이 강점을 살려 고객 피드백을 팀 내 공유하는 역할을 자처해보세요. 자기표현에 대한 성장 포인트는 작은 회의에서 먼저 연습해보는 게 좋을 것 같아요 :)",selfTopValue:"고객중심",givenTo:[]},
-  {n:2,values:[{name:"장기적 시각",count:2},{name:"협업과 소통",count:1}],comments:["큰 그림을 보는 시각이 있어서, 단기적인 과제에서도 방향을 잃지 않아요."],growthPoints:["세부 실행 계획을 조금 더 구체화하면 더 좋을 것 같아요."],aiCoachComment:"장기적 시각이 강점으로 보입니다. (표본 2명으로 참고 수준입니다.) 분기 목표를 월별 마일스톤으로 쪼개보는 연습을 해보세요 :)",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 D",learnedPoint:"장기 로드맵을 설명하는 방식에서 많이 배웠어요.",recognizedValue:"장기적 시각"}]},
-  {n:1,values:[{name:"협업과 소통",count:1}],comments:["소통이 부드러워서 같이 일하기 편해요."],growthPoints:["업무 진행 상황을 좀 더 자주 공유해주면 좋을 것 같아요."],aiCoachComment:"소통 강점이 확인됩니다. (표본 1명으로 참고 수준입니다.) 이 강점을 팀 전반으로 넓혀보세요 :)",selfTopValue:"협업과 소통",givenTo:[]}
+  {n:4,values:[{name:"협업과 소통",count:3},{name:"고객중심",count:2},{name:"주도적 실행",count:2},{name:"장기적 시각",count:1}],comments:["팀 내 갈등 상황에서 중립적으로 중재하며 분위기를 안정시켜줬어요.","고객 문의에 빠르고 친절하게 대응하는 모습이 인상적이었습니다."],growthPoints:["보고서 마감 시한을 한 번 넘긴 적이 있었는데, 일정 관리 역량을 키우면 더 좋을 것 같아요."],aiCoachComment:"동료들은 특히 '협업과 소통' 역량을 높이 평가했습니다. 이 강점을 더 발전시키려면 팀 미팅에서 의견을 적극적으로 정리하는 역할을 맡아보세요. 성장 포인트로 지적된 일정 관리는 작은 체크리스트 습관으로도 큰 변화를 만들 수 있어요 :)",praiseCoach:"이 강점을 더 키우려면 팀 미팅에서 의견을 적극적으로 정리하는 역할을 맡아 보세요.",growthCoach:"작은 체크리스트 습관과 주간 단위 마감 점검 루틴만으로도 큰 변화를 만들 수 있어요.",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 A",learnedPoint:"복잡한 데이터를 단순하게 시각화하는 능력을 배웠어요. 저도 다음 보고서에서 적용해 보려고 합니다.",recognizedValue:"주도적 실행"}]},
+  {n:5,values:[{name:"주도적 실행",count:4},{name:"협업과 소통",count:3},{name:"장기적 시각",count:2},{name:"고객중심",count:1}],comments:["어려운 상황에서도 끝까지 책임지고 마무리하는 모습이 인상 깊었어요.","업무 외에도 동료가 막힌 부분에서 자연스럽게 도움을 주더라고요."],growthPoints:["때로는 너무 빠르게 결론을 내리는 경향이 있어요. 다양한 의견을 더 듣는 시간을 가졌으면 해요."],aiCoachComment:"'주도적 실행' 강점이 두드러집니다. 이 에너지를 팀 전체로 확장하려면, 실행 단계에서 주변 동료를 자연스럽게 참여시키는 방식을 고려해 보세요. 성급한 결론에 대한 피드백은 '1분 더 듣기' 습관으로 시작해볼 수 있어요 :)",praiseCoach:"이 에너지를 팀 전체로 확장하려면 실행 단계에서 주변 동료를 자연스럽게 참여시켜 보세요.",growthCoach:"성급한 결론이 걱정된다면 '1분 더 듣기' 습관으로 다양한 의견을 들어 보세요.",selfTopValue:"주도적 실행",givenTo:[{anonymousName:"동료 B",learnedPoint:"기한이 촉박한 상황에서 우선순위를 빠르게 정하는 방법을 배웠어요.",recognizedValue:"주도적 실행"},{anonymousName:"동료 C",learnedPoint:"고객 관점으로 문제를 바라보는 시각이 인상적이었어요.",recognizedValue:"고객중심"}]},
+  {n:3,values:[{name:"고객중심",count:2},{name:"협업과 소통",count:2},{name:"장기적 시각",count:1},{name:"주도적 실행",count:1}],comments:["항상 고객 입장에서 먼저 생각하는 태도가 팀 전체에 좋은 영향을 줘요."],growthPoints:["자신의 의견을 좀 더 적극적으로 표현해주면 팀 논의가 더 풍성해질 것 같아요."],aiCoachComment:"고객 중심 사고가 동료들에게 분명하게 인식되고 있어요. 이 강점을 살려 고객 피드백을 팀 내 공유하는 역할을 자처해보세요. 자기표현에 대한 성장 포인트는 작은 회의에서 먼저 연습해보는 게 좋을 것 같아요 :)",praiseCoach:"이 강점을 살려 고객 피드백을 팀 내에 공유하는 역할을 자처해 보세요.",growthCoach:"자기표현은 작은 회의에서 먼저 의견을 꺼내 보는 연습으로 시작해 보세요.",selfTopValue:"고객중심",givenTo:[]},
+  {n:2,values:[{name:"장기적 시각",count:2},{name:"협업과 소통",count:1}],comments:["큰 그림을 보는 시각이 있어서, 단기적인 과제에서도 방향을 잃지 않아요."],growthPoints:["세부 실행 계획을 조금 더 구체화하면 더 좋을 것 같아요."],aiCoachComment:"장기적 시각이 강점으로 보입니다. (표본 2명으로 참고 수준입니다.) 분기 목표를 월별 마일스톤으로 쪼개보는 연습을 해보세요 :)",praiseCoach:"장기적 시각 강점을 살려 분기 목표를 월별 마일스톤으로 쪼개 보는 연습을 해보세요.",growthCoach:"세부 실행 계획은 핵심 작업 단위로 먼저 나눠 보면 구체화에 도움이 됩니다.",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 D",learnedPoint:"장기 로드맵을 설명하는 방식에서 많이 배웠어요.",recognizedValue:"장기적 시각"}]},
+  {n:1,values:[{name:"협업과 소통",count:1}],comments:["소통이 부드러워서 같이 일하기 편해요."],growthPoints:["업무 진행 상황을 좀 더 자주 공유해주면 좋을 것 같아요."],aiCoachComment:"소통 강점이 확인됩니다. (표본 1명으로 참고 수준입니다.) 이 강점을 팀 전반으로 넓혀보세요 :)",praiseCoach:"이 소통 강점을 팀 전반으로 자연스럽게 넓혀 보세요.",growthCoach:"업무 진행 상황을 주기적으로 공유하는 루틴을 만들어 보면 좋아요.",selfTopValue:"협업과 소통",givenTo:[]}
 ];
 function addPeerMock(emp,idx){
   if(emp.peer!==undefined) return emp;
@@ -1095,36 +1112,26 @@ function addPeerMock(emp,idx){
 
 function LevelTag({name}){
   const idx=LEVEL_IDX(name);
-  const tones=["neutral","moderate","info","success","success"];
+  const tones=["urgent","moderate","stable","success","lead"];
   return <Badge tone={tones[idx]||"neutral"}>{name||"–"}</Badge>;
 }
 
 /* ============ Employee detail ============ */
-function PeerValueBars({values}){
-  const maxCount=Math.max(...values.map(v=>v.count),1);
+function PeerValueBars({values,total}){
+  const shades=["#1e8e5a","#3f9f6d","#6bb78b","#9fd0b3","#c4e2d0"];
+  const denom=total||Math.max(...values.map(v=>v.count),1);
   return (
     <div className="peer-bars">
-      {values.map((v,i)=>(
-        <div key={i} className="peer-bar-row">
-          <span className="peer-bar-label">{v.name}</span>
-          <div className="peer-bar-track"><div className="peer-bar-fill" style={{width:(v.count/maxCount*100)+"%"}}/></div>
-          <span className="peer-bar-count">{v.count}명</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-function PerceptionGap({selfTop,peerTop}){
-  const isSame=selfTop===peerTop;
-  return (
-    <div className="perception-gap">
-      <div className="pg-title">인식 격차 · Perception Gap</div>
-      <div className="pg-row">
-        <div className="pg-item self"><div className="pg-tag">나의 자기인식</div><div className="pg-value">{selfTop}</div></div>
-        <div className="pg-arrow">{isSame?"=":"↔"}</div>
-        <div className="pg-item peer-eval"><div className="pg-tag">동료가 본 강점</div><div className="pg-value">{peerTop}</div></div>
-      </div>
-      {!isSame && <p className="pg-hint">💡 코칭 포인트: 본인이 중시하는 가치와 동료가 인정하는 강점이 다릅니다. 강점의 재발견 또는 자기인식 보정이 필요할 수 있습니다.</p>}
+      {values.map((v,i)=>{
+        const pct=Math.round(v.count/denom*100);
+        return (
+          <div key={i} className="peer-bar-row">
+            <span className="peer-bar-label">{v.name}</span>
+            <div className="peer-bar-track"><div className="peer-bar-fill" style={{width:pct+"%",background:shades[i]||shades[shades.length-1]}}/></div>
+            <span className="peer-bar-count"><b>{v.count}명</b> {pct}%</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -1139,31 +1146,82 @@ function AICoachWidget({comment}){
 function PeerEvalView({peer,name,isExec}){
   const n=peer.n;
   if(n===0) return <div className="peer-empty"><div>👥</div><p>이번 분기에 받은 동료 인정이 없습니다.</p></div>;
+  const topValue=peer.values&&peer.values[0]?peer.values[0].name:"";
+  const comments=peer.comments||[];
+  const growths=peer.growthPoints||[];
+  const hasPraise=comments.length>0;
+  const hasGrowth=growths.length>0;
   return (
     <div className="peer-view">
-      <section className="peer-section">
-        <div className="peer-section-head">
-          <h3>동료들이 꼽은 나의 강점</h3>
-          <span className="peer-count-badge">동료 {n}명 지목</span>
-          {n<=2 && <Badge tone="moderate">참고용 · 표본 적음</Badge>}
+      {/* 요약 카드 */}
+      <div className="peer-summary">
+        <div className="peer-summary-card">
+          <div className="ps-label">대표 강점</div>
+          <div className="ps-value accent">{topValue||"–"}</div>
         </div>
-        {n>=3 && peer.values && peer.values.length>0 && <PeerValueBars values={peer.values}/>}
-        {n>=3 && peer.values && peer.values[0] && <PerceptionGap selfTop={peer.selfTopValue} peerTop={peer.values[0].name}/>}
-        {(peer.comments||[]).map((c,i)=><div key={i} className="peer-comment"><span className="anon-label">익명의 동료</span><p>{c}</p></div>)}
-      </section>
-      <section className="peer-section">
-        <h3>동료들이 제안한 성장의 기회</h3>
-        {(peer.growthPoints||[]).map((g,i)=><div key={i} className="peer-comment growth"><span className="anon-label">익명의 동료</span><p>{g}</p></div>)}
-        {peer.aiCoachComment && <AICoachWidget comment={peer.aiCoachComment}/>}
-      </section>
-      <section className="peer-section">
-        <h3>내가 동료에게서 배운 점</h3>
-        {(!peer.givenTo||peer.givenTo.length===0) ? (
-          <p className="muted body-sm">이번 분기에 작성한 동료 평가가 없습니다.</p>
-        ) : (
-          peer.givenTo.map((g,i)=><div key={i} className="given-card"><div className="given-label">동료에게서 배운 점</div><p>{g.learnedPoint}</p><Badge tone="info">{g.recognizedValue}</Badge></div>)
+        <div className="peer-summary-card">
+          <div className="ps-label">참여 동료 수</div>
+          <div className="ps-value">{n}명</div>
+        </div>
+        <div className="peer-summary-card">
+          <div className="ps-label">보완 제안</div>
+          <div className="ps-value">{growths.length}건</div>
+        </div>
+      </div>
+
+      <div className="peer-divider"/>
+
+      {/* 섹션 1: 강점 분포 + 칭찬 / 보완 */}
+      <div className="peer-group">
+        <section className="peer-section">
+          <div className="peer-section-head">
+            <h3>동료가 꼽은 강점 분포</h3>
+            <span className="peer-dist-note">응답 동료 {n}명 · 복수 선택</span>
+            {n<=2 && <Badge tone="moderate">참고용 · 표본 적음</Badge>}
+          </div>
+          {peer.values&&peer.values.length>0
+            ? <PeerValueBars values={peer.values} total={n}/>
+            : <p className="muted body-sm">집계된 강점 데이터가 없습니다.</p>}
+        </section>
+
+        {(hasPraise||hasGrowth)&&(
+          <div className="peer-cols">
+            {hasPraise&&(
+              <section className="peer-section peer-col">
+                <h3 className="peer-col-head"><span className="dot praise"/>동료가 발견한 나의 강점</h3>
+                {comments.map((c,i)=><div key={i} className="peer-comment"><span className="anon-label">익명의 동료</span><p>{c}</p></div>)}
+                {peer.praiseCoach&&<AICoachWidget comment={peer.praiseCoach}/>}
+              </section>
+            )}
+            {hasGrowth&&(
+              <section className="peer-section peer-col">
+                <h3 className="peer-col-head"><span className="dot advice"/>더 큰 성장을 위한 조언</h3>
+                {growths.map((g,i)=><div key={i} className="peer-comment"><span className="anon-label">익명의 동료</span><p>{g}</p></div>)}
+                {peer.growthCoach&&<AICoachWidget comment={peer.growthCoach}/>}
+              </section>
+            )}
+          </div>
         )}
-      </section>
+      </div>
+
+      <div className="peer-divider"/>
+
+      {/* 섹션 2: 동료에게서 배운 점 */}
+      <div className="peer-group">
+        <section className="peer-section">
+          <h3>{name} 님이 동료에게서 배운 점</h3>
+          {(!peer.givenTo||peer.givenTo.length===0) ? (
+            <p className="muted body-sm">이번 분기에 작성한 동료 평가가 없습니다.</p>
+          ) : (
+            peer.givenTo.map((g,i)=>(
+              <div key={i} className="given-card given-row">
+                <div><div className="given-label">동료에게서 배운 점</div><p>{g.learnedPoint}</p></div>
+                <Badge tone="info">{g.recognizedValue}</Badge>
+              </div>
+            ))
+          )}
+        </section>
+      </div>
     </div>
   );
 }
@@ -1281,7 +1339,7 @@ function EmployeeDetail({e, deptName, info, onBack, embedded, isExec=false}){
               {e.leaderMemo&&<><div className="section-divider"/><div className="block"><div className="block-label">리더 메모</div><RichText text={e.leaderMemo}/></div></>}
             </>
           </div>
-          {peer&&<div className={activeTab==="peer"?"tab-panel":"tab-panel tab-panel-hidden"}><PeerEvalView peer={peer} name={e.name} isExec={isExec}/></div>}
+          {peer&&<div className={(activeTab==="peer"?"tab-panel":"tab-panel tab-panel-hidden")+" peer-print-block"}><div className="peer-print-title print-only">👥 동료 평가</div><PeerEvalView peer={peer} name={e.name} isExec={isExec}/></div>}
         </Card>
       </div>
     </div>
