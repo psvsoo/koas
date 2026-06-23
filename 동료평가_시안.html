@@ -402,13 +402,35 @@ svg, svg text{font-family:inherit;}
 .peer-col-head .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 .peer-col-head .dot.praise{background:var(--emerald);}
 .peer-col-head .dot.advice{background:#e6912e;}
-/* 보완(개선) 영역 시각 강조: 차분한 그레이 톤으로 "개선 포인트"임을 표시 */
-.peer-col.peer-advice{background:#e9edeb;border:none;border-left:4px solid #52635b;}
-.peer-col.peer-advice .peer-col-head{color:var(--grey-700);}
+/* 보완(개선) 영역: 사이드바와 동일한 포레스트 톤 패널 + 흰색 카드로 "짚고 넘어갈 부분"임을 강조 */
+.peer-col.peer-advice{background:var(--forest);border:1px solid var(--forest);box-shadow:0 4px 14px rgba(20,30,26,0.18);}
+.advice-head{display:flex;align-items:flex-start;gap:11px;margin:0 0 18px;}
+.advice-dot{width:10px;height:10px;border-radius:50%;background:#e6912e;flex-shrink:0;margin-top:6px;}
+.advice-title{margin:0 0 4px;font-size:16px;font-weight:800;color:#f4f6f4;}
+.advice-sub{margin:0;font-size:12.5px;font-weight:600;color:rgba(255,255,255,0.6);line-height:1.5;}
+.ai-coach-widget.ai-coach-action{background:#fff;border:1px solid var(--border);}
+.ai-coach-action .ai-coach-header{color:var(--heading);}
+.ai-coach-action .ai-coach-body{color:var(--grey-700);}
+/* 영향력 점수(동료가 매긴 영향력) */
+.impact-body{display:flex;gap:28px;align-items:center;flex-wrap:wrap;}
+.impact-score-main{display:flex;flex-direction:column;align-items:center;gap:8px;min-width:170px;padding:20px 26px;background:linear-gradient(160deg,#fff7ec 0%,#fffdf8 100%);border:1px solid #f3dcb8;border-radius:14px;}
+.impact-avg{display:flex;align-items:baseline;gap:5px;color:#b45309;}
+.impact-avg b{font-size:42px;font-weight:800;line-height:1;}
+.impact-avg span{font-size:14px;font-weight:700;color:#c98a3c;}
+.impact-caption{font-size:12px;font-weight:600;color:var(--muted);text-align:center;}
+.star-meter{position:relative;display:inline-block;font-size:21px;line-height:1;letter-spacing:3px;}
+.star-meter-bg{color:#e7ddcb;}
+.star-meter-fg{position:absolute;top:0;left:0;white-space:nowrap;overflow:hidden;color:#f0a934;}
+.impact-dist{flex:1;min-width:230px;display:flex;flex-direction:column;gap:8px;}
+.impact-dist-row{display:flex;align-items:center;gap:10px;}
+.impact-dist-label{width:34px;font-size:12px;font-weight:700;color:var(--grey-600);flex-shrink:0;}
+.impact-dist-track{flex:1;height:9px;background:#eef1f0;border-radius:99px;overflow:hidden;}
+.impact-dist-fill{height:100%;background:linear-gradient(90deg,#f0a934,#e6912e);border-radius:99px;transition:width .4s;}
+.impact-dist-count{width:38px;font-size:12px;font-weight:700;color:var(--grey-600);text-align:right;flex-shrink:0;}
 .peer-divider{height:1px;background:var(--border);margin:0;}
 .given-row{display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .given-row p{margin:0;}
-@media(max-width:768px){.peer-summary{grid-template-columns:1fr;}.peer-cols{flex-direction:column;}}
+@media(max-width:768px){.peer-summary{grid-template-columns:1fr;}.peer-cols{flex-direction:column;}.impact-body{flex-direction:column;align-items:stretch;}.impact-score-main{align-self:center;}}
 /* 탭 패널 — 화면에서 비활성 탭 숨김, 인쇄 시 모두 노출 */
 .tab-panel-hidden{display:none;}
 /* 버튼·링크 기본 아웃라인 리셋 */
@@ -1104,11 +1126,11 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info, isExec=fa
 
 /* ============ peer mock data ============ */
 const PEER_MOCK_POOL = [
-  {n:4,values:[{name:"협업과 소통",count:3},{name:"고객중심",count:2},{name:"주도적 실행",count:2},{name:"장기적 시각",count:1}],comments:["팀 내 갈등 상황에서 중립적으로 중재하며 분위기를 안정시켜줬어요.","고객 문의에 빠르고 친절하게 대응하는 모습이 인상적이었습니다."],growthPoints:["보고서 마감 시한을 한 번 넘긴 적이 있었는데, 일정 관리 역량을 키우면 더 좋을 것 같아요."],aiCoachComment:"동료들은 특히 '협업과 소통' 역량을 높이 평가했습니다. 이 강점을 더 발전시키려면 팀 미팅에서 의견을 적극적으로 정리하는 역할을 맡아보세요. 성장 포인트로 지적된 일정 관리는 작은 체크리스트 습관으로도 큰 변화를 만들 수 있어요 :)",praiseCoach:"이 강점을 더 키우려면 팀 미팅에서 의견을 적극적으로 정리하는 역할을 맡아 보세요.",growthCoach:"작은 체크리스트 습관과 주간 단위 마감 점검 루틴만으로도 큰 변화를 만들 수 있어요.",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 A",learnedPoint:"복잡한 데이터를 단순하게 시각화하는 능력을 배웠어요. 저도 다음 보고서에서 적용해 보려고 합니다.",recognizedValue:"주도적 실행"}]},
-  {n:5,values:[{name:"주도적 실행",count:4},{name:"협업과 소통",count:3},{name:"장기적 시각",count:2},{name:"고객중심",count:1}],comments:["어려운 상황에서도 끝까지 책임지고 마무리하는 모습이 인상 깊었어요.","업무 외에도 동료가 막힌 부분에서 자연스럽게 도움을 주더라고요."],growthPoints:["때로는 너무 빠르게 결론을 내리는 경향이 있어요. 다양한 의견을 더 듣는 시간을 가졌으면 해요."],aiCoachComment:"'주도적 실행' 강점이 두드러집니다. 이 에너지를 팀 전체로 확장하려면, 실행 단계에서 주변 동료를 자연스럽게 참여시키는 방식을 고려해 보세요. 성급한 결론에 대한 피드백은 '1분 더 듣기' 습관으로 시작해볼 수 있어요 :)",praiseCoach:"이 에너지를 팀 전체로 확장하려면 실행 단계에서 주변 동료를 자연스럽게 참여시켜 보세요.",growthCoach:"성급한 결론이 걱정된다면 '1분 더 듣기' 습관으로 다양한 의견을 들어 보세요.",selfTopValue:"주도적 실행",givenTo:[{anonymousName:"동료 B",learnedPoint:"기한이 촉박한 상황에서 우선순위를 빠르게 정하는 방법을 배웠어요.",recognizedValue:"주도적 실행"},{anonymousName:"동료 C",learnedPoint:"고객 관점으로 문제를 바라보는 시각이 인상적이었어요.",recognizedValue:"고객중심"}]},
-  {n:3,values:[{name:"고객중심",count:2},{name:"협업과 소통",count:2},{name:"장기적 시각",count:1},{name:"주도적 실행",count:1}],comments:["항상 고객 입장에서 먼저 생각하는 태도가 팀 전체에 좋은 영향을 줘요."],growthPoints:["자신의 의견을 좀 더 적극적으로 표현해주면 팀 논의가 더 풍성해질 것 같아요."],aiCoachComment:"고객 중심 사고가 동료들에게 분명하게 인식되고 있어요. 이 강점을 살려 고객 피드백을 팀 내 공유하는 역할을 자처해보세요. 자기표현에 대한 성장 포인트는 작은 회의에서 먼저 연습해보는 게 좋을 것 같아요 :)",praiseCoach:"이 강점을 살려 고객 피드백을 팀 내에 공유하는 역할을 자처해 보세요.",growthCoach:"자기표현은 작은 회의에서 먼저 의견을 꺼내 보는 연습으로 시작해 보세요.",selfTopValue:"고객중심",givenTo:[]},
-  {n:2,values:[{name:"장기적 시각",count:2},{name:"협업과 소통",count:1}],comments:["큰 그림을 보는 시각이 있어서, 단기적인 과제에서도 방향을 잃지 않아요."],growthPoints:["세부 실행 계획을 조금 더 구체화하면 더 좋을 것 같아요."],aiCoachComment:"장기적 시각이 강점으로 보입니다. (표본 2명으로 참고 수준입니다.) 분기 목표를 월별 마일스톤으로 쪼개보는 연습을 해보세요 :)",praiseCoach:"장기적 시각 강점을 살려 분기 목표를 월별 마일스톤으로 쪼개 보는 연습을 해보세요.",growthCoach:"세부 실행 계획은 핵심 작업 단위로 먼저 나눠 보면 구체화에 도움이 됩니다.",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 D",learnedPoint:"장기 로드맵을 설명하는 방식에서 많이 배웠어요.",recognizedValue:"장기적 시각"}]},
-  {n:1,values:[{name:"협업과 소통",count:1}],comments:["소통이 부드러워서 같이 일하기 편해요."],growthPoints:["업무 진행 상황을 좀 더 자주 공유해주면 좋을 것 같아요."],aiCoachComment:"소통 강점이 확인됩니다. (표본 1명으로 참고 수준입니다.) 이 강점을 팀 전반으로 넓혀보세요 :)",praiseCoach:"이 소통 강점을 팀 전반으로 자연스럽게 넓혀 보세요.",growthCoach:"업무 진행 상황을 주기적으로 공유하는 루틴을 만들어 보면 좋아요.",selfTopValue:"협업과 소통",givenTo:[]}
+  {n:4,impactScores:[5,4,4,3],values:[{name:"협업과 소통",count:3},{name:"고객중심",count:2},{name:"주도적 실행",count:2},{name:"장기적 시각",count:1}],comments:["팀 내 갈등 상황에서 중립적으로 중재하며 분위기를 안정시켜줬어요.","고객 문의에 빠르고 친절하게 대응하는 모습이 인상적이었습니다."],growthPoints:["보고서 마감 시한을 한 번 넘긴 적이 있었는데, 일정 관리 역량을 키우면 더 좋을 것 같아요."],aiCoachComment:"동료들은 특히 '협업과 소통' 역량을 높이 평가했습니다. 이 강점을 더 발전시키려면 팀 미팅에서 의견을 적극적으로 정리하는 역할을 맡아보세요. 성장 포인트로 지적된 일정 관리는 작은 체크리스트 습관으로도 큰 변화를 만들 수 있어요 :)",praiseCoach:"이 강점을 더 키우려면 팀 미팅에서 의견을 적극적으로 정리하는 역할을 맡아 보세요.",growthCoach:"작은 체크리스트 습관과 주간 단위 마감 점검 루틴만으로도 큰 변화를 만들 수 있어요.",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 A",learnedPoint:"복잡한 데이터를 단순하게 시각화하는 능력을 배웠어요. 저도 다음 보고서에서 적용해 보려고 합니다.",recognizedValue:"주도적 실행"}]},
+  {n:5,impactScores:[5,5,4,4,3],values:[{name:"주도적 실행",count:4},{name:"협업과 소통",count:3},{name:"장기적 시각",count:2},{name:"고객중심",count:1}],comments:["어려운 상황에서도 끝까지 책임지고 마무리하는 모습이 인상 깊었어요.","업무 외에도 동료가 막힌 부분에서 자연스럽게 도움을 주더라고요."],growthPoints:["때로는 너무 빠르게 결론을 내리는 경향이 있어요. 다양한 의견을 더 듣는 시간을 가졌으면 해요."],aiCoachComment:"'주도적 실행' 강점이 두드러집니다. 이 에너지를 팀 전체로 확장하려면, 실행 단계에서 주변 동료를 자연스럽게 참여시키는 방식을 고려해 보세요. 성급한 결론에 대한 피드백은 '1분 더 듣기' 습관으로 시작해볼 수 있어요 :)",praiseCoach:"이 에너지를 팀 전체로 확장하려면 실행 단계에서 주변 동료를 자연스럽게 참여시켜 보세요.",growthCoach:"성급한 결론이 걱정된다면 '1분 더 듣기' 습관으로 다양한 의견을 들어 보세요.",selfTopValue:"주도적 실행",givenTo:[{anonymousName:"동료 B",learnedPoint:"기한이 촉박한 상황에서 우선순위를 빠르게 정하는 방법을 배웠어요.",recognizedValue:"주도적 실행"},{anonymousName:"동료 C",learnedPoint:"고객 관점으로 문제를 바라보는 시각이 인상적이었어요.",recognizedValue:"고객중심"}]},
+  {n:3,impactScores:[4,3,4],values:[{name:"고객중심",count:2},{name:"협업과 소통",count:2},{name:"장기적 시각",count:1},{name:"주도적 실행",count:1}],comments:["항상 고객 입장에서 먼저 생각하는 태도가 팀 전체에 좋은 영향을 줘요."],growthPoints:["자신의 의견을 좀 더 적극적으로 표현해주면 팀 논의가 더 풍성해질 것 같아요."],aiCoachComment:"고객 중심 사고가 동료들에게 분명하게 인식되고 있어요. 이 강점을 살려 고객 피드백을 팀 내 공유하는 역할을 자처해보세요. 자기표현에 대한 성장 포인트는 작은 회의에서 먼저 연습해보는 게 좋을 것 같아요 :)",praiseCoach:"이 강점을 살려 고객 피드백을 팀 내에 공유하는 역할을 자처해 보세요.",growthCoach:"자기표현은 작은 회의에서 먼저 의견을 꺼내 보는 연습으로 시작해 보세요.",selfTopValue:"고객중심",givenTo:[]},
+  {n:2,impactScores:[5,4],values:[{name:"장기적 시각",count:2},{name:"협업과 소통",count:1}],comments:["큰 그림을 보는 시각이 있어서, 단기적인 과제에서도 방향을 잃지 않아요."],growthPoints:["세부 실행 계획을 조금 더 구체화하면 더 좋을 것 같아요."],aiCoachComment:"장기적 시각이 강점으로 보입니다. (표본 2명으로 참고 수준입니다.) 분기 목표를 월별 마일스톤으로 쪼개보는 연습을 해보세요 :)",praiseCoach:"장기적 시각 강점을 살려 분기 목표를 월별 마일스톤으로 쪼개 보는 연습을 해보세요.",growthCoach:"세부 실행 계획은 핵심 작업 단위로 먼저 나눠 보면 구체화에 도움이 됩니다.",selfTopValue:"장기적 시각",givenTo:[{anonymousName:"동료 D",learnedPoint:"장기 로드맵을 설명하는 방식에서 많이 배웠어요.",recognizedValue:"장기적 시각"}]},
+  {n:1,impactScores:[4],values:[{name:"협업과 소통",count:1}],comments:["소통이 부드러워서 같이 일하기 편해요."],growthPoints:["업무 진행 상황을 좀 더 자주 공유해주면 좋을 것 같아요."],aiCoachComment:"소통 강점이 확인됩니다. (표본 1명으로 참고 수준입니다.) 이 강점을 팀 전반으로 넓혀보세요 :)",praiseCoach:"이 소통 강점을 팀 전반으로 자연스럽게 넓혀 보세요.",growthCoach:"업무 진행 상황을 주기적으로 공유하는 루틴을 만들어 보면 좋아요.",selfTopValue:"협업과 소통",givenTo:[]}
 ];
 function addPeerMock(emp,idx){
   if(emp.peer!==undefined) return emp;
@@ -1144,12 +1166,58 @@ function PeerValueBars({values,total}){
     </div>
   );
 }
-function AICoachWidget({comment}){
+function AICoachWidget({comment,variant}){
+  const isAction=variant==="action";
+  const isSummary=variant==="summary";
+  const header=isSummary?"최복동의 강점 요약":"최복동의 Next Step 제안";
   return (
-    <div className="ai-coach-widget">
-      <div className="ai-coach-header"><span>최복동의 Next Step 제안</span></div>
+    <div className={isAction?"ai-coach-widget ai-coach-action":"ai-coach-widget"}>
+      <div className="ai-coach-header"><span>{header}</span></div>
       <p className="ai-coach-body">{comment}</p>
     </div>
+  );
+}
+function StarMeter({value}){
+  const pct=Math.max(0,Math.min(100,(value/5)*100));
+  return (
+    <div className="star-meter" aria-label={value.toFixed(1)+" / 5점"}>
+      <div className="star-meter-bg">★★★★★</div>
+      <div className="star-meter-fg" style={{width:pct+"%"}}>★★★★★</div>
+    </div>
+  );
+}
+function ImpactScoreView({scores}){
+  const n=scores.length;
+  if(n===0) return null;
+  const avg=scores.reduce((a,b)=>a+b,0)/n;
+  const dist=[5,4,3,2,1].map(s=>({s,count:scores.filter(x=>x===s).length}));
+  return (
+    <section className="peer-section impact-section">
+      <div className="peer-section-head">
+        <h3>동료에게 준 영향력</h3>
+        <InfoTip text={"각 동료가 '이 동료의 행동은 나에게 얼마나 자주, 얼마나 깊이 영향을 주었나요?(5점 만점, 높을수록 많은 영향)'에 응답한 점수입니다."}/>
+        <span className="peer-dist-note">응답 동료 {n}명</span>
+      </div>
+      <div className="impact-body">
+        <div className="impact-score-main">
+          <div className="impact-avg"><b>{avg.toFixed(1)}</b><span>/ 5점</span></div>
+          <StarMeter value={avg}/>
+          <div className="impact-caption">동료 {n}명이 매긴<br/>영향력 평균</div>
+        </div>
+        <div className="impact-dist">
+          {dist.map(d=>{
+            const pct=Math.round((d.count/n)*100);
+            return (
+              <div className="impact-dist-row" key={d.s}>
+                <span className="impact-dist-label">{d.s}점</span>
+                <div className="impact-dist-track"><div className="impact-dist-fill" style={{width:pct+"%"}}/></div>
+                <span className="impact-dist-count">{d.count}명</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
 function PeerEvalView({peer,name,isExec}){
@@ -1160,6 +1228,10 @@ function PeerEvalView({peer,name,isExec}){
   const growths=peer.growthPoints||[];
   const hasPraise=comments.length>0;
   const hasGrowth=growths.length>0;
+  const topNames=(peer.values||[]).filter(v=>v.count>0).slice(0,3).map(v=>v.name);
+  const praiseSummary=topNames.length
+    ? `동료 ${n}명의 평가를 종합하면, ${name} 님은 ${topNames.map(t=>"'"+t+"'").join(", ")} 측면에서 인정받았고 그중 '${topValue}'에서 가장 두각을 나타냈습니다.`
+    : "";
   return (
     <div className="peer-view">
       {/* 요약 카드 */}
@@ -1182,6 +1254,7 @@ function PeerEvalView({peer,name,isExec}){
 
       {/* 섹션 1: 강점 분포 + 칭찬 / 보완 */}
       <div className="peer-group">
+        {peer.impactScores&&peer.impactScores.length>0&&<ImpactScoreView scores={peer.impactScores}/>}
         <section className="peer-section">
           <div className="peer-section-head">
             <h3>동료가 꼽은 강점 분포</h3>
@@ -1199,14 +1272,20 @@ function PeerEvalView({peer,name,isExec}){
               <section className="peer-section peer-col">
                 <h3 className="peer-col-head"><span className="dot praise"/>동료가 발견한 나의 강점</h3>
                 {comments.map((c,i)=><div key={i} className="peer-comment"><span className="anon-label">익명의 동료</span><p>{c}</p></div>)}
-                {peer.praiseCoach&&<AICoachWidget comment={peer.praiseCoach}/>}
+                {praiseSummary&&<AICoachWidget comment={praiseSummary} variant="summary"/>}
               </section>
             )}
             {hasGrowth&&(
               <section className="peer-section peer-col peer-advice">
-                <h3 className="peer-col-head"><span className="dot advice"/>더 큰 성장을 위한 조언</h3>
-                {growths.map((g,i)=><div key={i} className="peer-comment"><span className="anon-label">익명의 동료</span><p>{g}</p></div>)}
-                {peer.growthCoach&&<AICoachWidget comment={peer.growthCoach}/>}
+                <div className="advice-head">
+                  <span className="advice-dot"/>
+                  <div>
+                    <h3 className="advice-title">더 큰 성장을 위한 조언</h3>
+                    <p className="advice-sub">동료들이 짚어준, 지금 개선하면 한 단계 더 성장할 수 있는 부분이에요.</p>
+                  </div>
+                </div>
+                {growths.map((g,i)=><div key={i} className="peer-comment advice-comment"><span className="anon-label">익명의 동료</span><p>{g}</p></div>)}
+                {peer.growthCoach&&<AICoachWidget comment={peer.growthCoach} variant="action"/>}
               </section>
             )}
           </div>
