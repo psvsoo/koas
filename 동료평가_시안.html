@@ -143,7 +143,7 @@ svg, svg text{font-family:inherit;}
 /* 인포메이션 용어 안내 (화면에는 숨김, 인쇄 시 마지막 페이지에 출력) */
 .info-glossary{display:none;}
 .ig-item{margin-bottom:14px;border-left:3px solid var(--emerald);padding-left:14px;border-radius:0;}
-.ig-term{font-weight:700;color:var(--heading);font-size:15px;margin-bottom:5px;}
+.ig-term{font-weight:700;color:var(--heading);font-size:15px;margin-bottom:5px;white-space:pre-line;}
 .ig-def div{font-size:13px;color:var(--grey-700);line-height:1.65;}
 /* 검색 + 필터 바 */
 .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:4px 4px 16px;border-bottom:1px solid var(--border);margin-bottom:4px;}
@@ -591,7 +591,8 @@ const FEEDBACK_SUB = "행동 기준 점수(1차)와 성장 레벨·본부 목표
 /* 인포메이션 ⓘ 문구 — 제공된 텍스트로 고정 */
 const INFO = {
   difficulty: "과제 난이도(상/중/하)는 AI가 아래 기준을 바탕으로 맥락을 종합하여 판단합니다. 대표적인 판단 기준은 다음과 같습니다.\n• 상: 본부 목표 직결, 복잡·전략적 과제\n• 중: 기존 업무 개선 및 안정적 수행\n• 하: 단순 반복, 목표 연관성 낮음",
-  signal: "업무 수행 과정에서 가장 두드러지게 발현된 KOAS의 핵심 가치를 도출합니다.\n(① 협업과 소통 ② 고객중심 ③ 대외 경쟁력 ④ 장기적 시각 중 선정)",
+  signal1: "업무 수행 과정에서 가장 두드러지게 발현된 KOAS의 핵심 가치를 도출합니다.\n(① 협업과 소통 ② 고객중심 ③ 대외 경쟁력 ④ 장기적 시각 중 선정)",
+  signal2: "업무 수행 과정에서 약하게 발현된 KOAS의 핵심 가치를 도출합니다.\n(① 협업과 소통 ② 고객중심 ③ 대외 경쟁력 ④ 장기적 시각 중 선정)",
   level1: "행동 기반 기준에 따라 자동 산출된 점수를 바탕으로 한 진단 결과입니다. 대표적인 기준은 다음과 같습니다.\n1. 작성 성실도\n2. 전월 대비 신규성\n3. 구체적 수치/결과 포함\n4. 행동 변화 표현\n5. 비즈니스 임팩트 표현\n\n기준 항목과 가중치는 데이터 누적을 통해 지속 보완되며, 진단 신뢰도를 높여갑니다.",
   level2: "사전 정의된 성장 레벨 수준·본부 목표 연계성을 바탕으로 행동 기준 점수(1차)를 엄격히 검증한 AI 최종 진단 레벨입니다.",
   reason: "1차 성장 레벨을 유지하거나 조정한 근거입니다. 단순한 계획이나 의지 표현보다 실제 실행, 성과, 변화의 흔적에 더 높은 비중을 두고 분석합니다.",
@@ -1132,7 +1133,7 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info, isExec=fa
                 <TH k="team" width={180}>소속팀</TH>
                 <TH k="rank" width={90}>직급</TH>
                 <TH k="difficulty" width={84}>난이도</TH>
-                <TH k="level2" width={200}>2차 성장 레벨(행동 검증)</TH>
+                <TH k="level2" width={200}>2차 성장 레벨<br/>(행동 검증)</TH>
                 <th style={{width:72}}>참여 동료 수</th>
                 <th style={{width:36}}></th>
               </tr></thead>
@@ -1542,16 +1543,16 @@ function EmployeeDetail({e, deptName, info, onBack, embedded, isExec=false}){
                   <div className="diag-group">
                     <div className="diag-group-label" style={{color:"var(--grey-600)"}}>성장 레벨</div>
                     <div className="diag-group-inner arrow">
-                      <DiagCard label="1차 성장 레벨(행동 기준)" infoText={INFO.level1} color="var(--grey-700)" value={e.level1}/>
+                      <DiagCard label={<>1차 성장 레벨<br/>{"(행동 기준)"}</>} infoText={INFO.level1} color="var(--grey-700)" value={e.level1}/>
                       <div className="diag-arrow">→</div>
-                      <DiagCard label="2차 성장 레벨(행동 검증)" infoText={INFO.level2} color={level2Color} value={e.level2} highlight/>
+                      <DiagCard label={<>2차 성장 레벨<br/>{"(행동 검증)"}</>} infoText={INFO.level2} color={level2Color} value={e.level2} highlight/>
                     </div>
                   </div>
                   <div className="diag-group">
                     <div className="diag-group-label" style={{color:"var(--grey-600)"}}>성장 시그널</div>
                     <div className="diag-group-inner">
-                      <DiagCard label="1차 성장 시그널" infoText={INFO.signal} color="var(--grey-700)" value={e.signal1}/>
-                      <DiagCard label="2차 성장 시그널" infoText={INFO.signal} color="var(--grey-700)" value={e.signal2}/>
+                      <DiagCard label="1차 성장 시그널" infoText={INFO.signal1} color="var(--grey-700)" value={e.signal1}/>
+                      <DiagCard label="2차 성장 시그널" infoText={INFO.signal2} color="var(--grey-700)" value={e.signal2}/>
                     </div>
                   </div>
                 </div>
@@ -1614,9 +1615,10 @@ function InfoGlossary(){
   const items=[
     ["과제 난이도", INFO.difficulty],
     ["과제 난이도 — 베타 안내", DIFF_BETA],
-    ["1차 / 2차 성장 시그널", INFO.signal],
-    ["1차 성장 레벨(행동 기준)", INFO.level1],
-    ["2차 성장 레벨(행동 검증)", INFO.level2],
+    ["1차 성장 시그널", INFO.signal1],
+    ["2차 성장 시그널", INFO.signal2],
+    ["1차 성장 레벨\n(행동 기준)", INFO.level1],
+    ["2차 성장 레벨\n(행동 검증)", INFO.level2],
     ["Agent 최복동이 이렇게 진단한 이유는요?", INFO.reason],
     ["최복동의 피드백", INFO.feedback + "\n" + FEEDBACK_SUB],
     ["AI 진단 요약", AI_SUMMARY_DESC],
