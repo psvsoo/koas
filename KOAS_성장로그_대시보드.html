@@ -49,7 +49,7 @@ img{-webkit-user-drag:none;user-drag:none;}
 .t-section{font-size:20px;font-weight:700;line-height:1.4;margin:0;}                        /* 중제목(섹션) */
 .t-card{font-size:17px;font-weight:600;line-height:1.5;margin:0;}                           /* 소제목(카드·항목) */
 .t-body{font-size:16px;font-weight:400;line-height:1.65;margin:0;}                          /* 본문 */
-.t-sub{font-size:13px;font-weight:400;line-height:1.55;margin:0;}                           /* 세부/보조 */
+.t-sub{font-size:14px;font-weight:400;line-height:1.55;margin:0;}                           /* 세부/보조 */
 svg, svg text{font-family:inherit;}
 
 /* layout */
@@ -143,7 +143,7 @@ svg, svg text{font-family:inherit;}
 /* 인포메이션 용어 안내 (화면에는 숨김, 인쇄 시 마지막 페이지에 출력) */
 .info-glossary{display:none;}
 .ig-item{margin-bottom:14px;border-left:3px solid var(--emerald);padding-left:14px;border-radius:0;}
-.ig-term{font-weight:700;color:var(--heading);font-size:15px;margin-bottom:5px;}
+.ig-term{font-weight:700;color:var(--heading);font-size:15px;margin-bottom:5px;white-space:pre-line;}
 .ig-def div{font-size:13px;color:var(--grey-700);line-height:1.65;}
 /* 검색 + 필터 바 */
 .filterbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:4px 4px 16px;border-bottom:1px solid var(--border);margin-bottom:4px;}
@@ -201,7 +201,7 @@ svg, svg text{font-family:inherit;}
 .infodot{display:inline-flex;align-items:center;justify-content:center;color:var(--emerald);cursor:help;vertical-align:middle;}
 .infodot:hover{color:var(--emerald-hover);}
 .tooltip{position:fixed;z-index:9999;text-align:left;
-  background:var(--heading);color:#fff;border-radius:10px;padding:12px 14px;font-size:13px;line-height:1.55;font-weight:400;
+  background:var(--heading);color:#fff;border-radius:10px;padding:12px 14px;font-size:14px;line-height:1.55;font-weight:400;
   width:264px;box-shadow:0px 8px 24px rgba(16,39,31,0.22);}
 
 /* insight */
@@ -228,7 +228,7 @@ svg, svg text{font-family:inherit;}
 .sec-head-icon{width:24px;height:24px;border-radius:7px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;}
 .sec-head-icon.log{background:var(--surface);color:var(--grey-600);}
 .sec-head-icon.ai{background:rgba(30,142,90,0.14);color:var(--emerald);}
-.sec-tag{font-size:13px;font-weight:600;color:var(--muted);background:var(--surface);border-radius:6px;padding:2px 9px;}
+.sec-tag{font-size:14px;font-weight:600;color:var(--muted);background:var(--surface);border-radius:6px;padding:2px 9px;}
 .sec-tag.ai{color:var(--emerald-hover);background:var(--primary-light);}
 /* 피드백 코멘트: 흰 박스로 대비 확보 */
 .ai-comment-box{background:#fff;border:1px solid #d3e7da;border-radius:10px;padding:16px 18px;}
@@ -244,16 +244,17 @@ svg, svg text{font-family:inherit;}
 .diag-group-inner{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;align-items:stretch;}
 .diag-group-inner.arrow{grid-template-columns:1fr auto 1fr;}
 .diag-arrow{display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:18px;padding:0 2px;flex-shrink:0;}
-.diag-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 12px;display:flex;flex-direction:column;gap:6px;text-align:center;justify-content:center;}
+.diag-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:13px 12px;display:flex;flex-direction:column;gap:6px;text-align:center;justify-content:center;position:relative;}
 .diag-card-final{border-color:var(--emerald);background:var(--primary-light);}
-.diag-label{font-size:12px;line-height:1.4;color:var(--muted);font-weight:500;display:flex;align-items:flex-start;justify-content:center;gap:3px;min-height:32px;}
+.diag-info-corner{position:absolute;top:7px;right:7px;}
+.diag-label{font-size:14px;line-height:1.4;color:var(--muted);font-weight:500;display:block;text-align:center;min-height:36px;padding:0 20px;}
 .diag-single .diag-label{min-height:0;}
-.diag-group-label{font-size:12px;font-weight:700;letter-spacing:0.05em;text-align:center;padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:2px;}
+.diag-group-label{font-size:14px;font-weight:700;letter-spacing:0.05em;text-align:center;padding-bottom:6px;border-bottom:1px solid var(--border);margin-bottom:2px;}
 .diag-value{font-size:17px;font-weight:700;line-height:1.35;word-break:keep-all;}
 .diag-reasons{margin-top:16px;display:flex;flex-direction:column;gap:12px;}
 .reason-line{background:#fff;border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
-.rl-label{display:inline-block;font-size:13px;font-weight:700;color:var(--data-navy);background:#e8eff7;border-radius:6px;padding:2px 8px;margin-bottom:7px;}
-.ai-summary-desc{font-size:13px;color:var(--grey-700);margin-top:14px;line-height:1.6;}
+.rl-label{display:inline-block;font-size:14px;font-weight:700;color:var(--data-navy);background:#e8eff7;border-radius:6px;padding:2px 8px;margin-bottom:7px;}
+.ai-summary-desc{font-size:14px;color:var(--grey-700);margin-top:14px;line-height:1.6;}
 
 .section-divider{height:1px;background:var(--border);margin:22px 0;}
 .log-section{}
@@ -265,8 +266,8 @@ svg, svg text{font-family:inherit;}
 .block{margin-bottom:20px;}
 .block-label{font-size:15px;font-weight:600;color:var(--heading);margin-bottom:10px;}
 .logbox{background:var(--surface);border-radius:12px;padding:16px 18px;}
-.log-sub{font-size:13px;font-weight:600;color:var(--grey-600);margin-bottom:8px;}
-.note-beta{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.5;background:var(--surface);border-radius:8px;padding:10px 12px;}
+.log-sub{font-size:14px;font-weight:600;color:var(--grey-600);margin-bottom:8px;}
+.note-beta{font-size:14px;color:var(--muted);margin-top:14px;line-height:1.5;background:var(--surface);border-radius:8px;padding:10px 12px;}
 
 /* login */
 .loginwrap{display:flex;min-height:100vh;}
@@ -302,6 +303,8 @@ svg, svg text{font-family:inherit;}
   .loginwrap{flex-direction:column;}
   .login-hero{padding:40px 28px;}
   .diag-grid{flex-direction:column;}
+  .diag-card{padding-top:26px;}
+  .diag-label{padding:0;}
   /* 직원별 상세 조회 헤더: 세로 스택 + 버튼 꽉 채움 */
   .emp-section-head{flex-direction:column;align-items:stretch;gap:12px;}
   .emp-actions{width:100%;}
@@ -437,7 +440,8 @@ const FEEDBACK_SUB = "행동 기준 점수(1차)와 성장 레벨·본부 목표
 /* 인포메이션 ⓘ 문구 — 제공된 텍스트로 고정 */
 const INFO = {
   difficulty: "과제 난이도(상/중/하)는 AI가 아래 기준을 바탕으로 맥락을 종합하여 판단합니다. 대표적인 판단 기준은 다음과 같습니다.\n• 상: 본부 목표 직결, 복잡·전략적 과제\n• 중: 기존 업무 개선 및 안정적 수행\n• 하: 단순 반복, 목표 연관성 낮음",
-  signal: "업무 수행 과정에서 가장 두드러지게 발현된 KOAS의 핵심 가치를 도출합니다.\n(① 협업과 소통 ② 고객중심 ③ 대외 경쟁력 ④ 장기적 시각 중 선정)",
+  signal1: "업무 수행 과정에서 가장 두드러지게 발현된 KOAS의 핵심 가치를 도출합니다.\n(① 협업과 소통 ② 고객중심 ③ 대외 경쟁력 ④ 장기적 시각 중 선정)",
+  signal2: "업무 수행 과정에서 약하게 발현된 KOAS의 핵심 가치를 도출합니다.\n(① 협업과 소통 ② 고객중심 ③ 대외 경쟁력 ④ 장기적 시각 중 선정)",
   level1: "행동 기반 기준에 따라 자동 산출된 점수를 바탕으로 한 진단 결과입니다. 대표적인 기준은 다음과 같습니다.\n1. 작성 성실도\n2. 전월 대비 신규성\n3. 구체적 수치/결과 포함\n4. 행동 변화 표현\n5. 비즈니스 임팩트 표현\n\n기준 항목과 가중치는 데이터 누적을 통해 지속 보완되며, 진단 신뢰도를 높여갑니다.",
   level2: "사전 정의된 성장 레벨 수준·본부 목표 연계성을 바탕으로 행동 기준 점수(1차)를 엄격히 검증한 AI 최종 진단 레벨입니다.",
   reason: "1차 성장 레벨을 유지하거나 조정한 근거입니다. 단순한 계획이나 의지 표현보다 실제 실행, 성과, 변화의 흔적에 더 높은 비중을 두고 분석합니다.",
@@ -698,8 +702,8 @@ function LogText({text}){
   return <div>{lines.map((ln,i)=>{
     if(!ln.trim()) return null;
     const m = ln.match(/^\s*(\[[^\]]+\])\s*(.*)$/);
-    if(m) return <p key={i} className="body" style={{margin:"0 0 8px",lineHeight:1.75,color:"var(--grey-700)"}}><strong style={{fontWeight:700,color:"var(--heading)"}}>{m[1]}</strong> {renderInline(m[2],i)}</p>;
-    return <p key={i} className="body" style={{margin:"0 0 8px",lineHeight:1.75,color:"var(--grey-700)"}}>{renderInline(ln,i)}</p>;
+    if(m) return <p key={i} className="body-sm" style={{margin:"0 0 8px",lineHeight:1.75,color:"var(--grey-700)"}}><strong style={{fontWeight:700,color:"var(--heading)"}}>{m[1]}</strong> {renderInline(m[2],i)}</p>;
+    return <p key={i} className="body-sm" style={{margin:"0 0 8px",lineHeight:1.75,color:"var(--grey-700)"}}>{renderInline(ln,i)}</p>;
   })}</div>;
 }
 
@@ -976,7 +980,7 @@ function DeptView({deptName, dept, companyLevels, companyEnergy, info}){
                 <TH k="team">소속팀</TH>
                 <TH k="rank">직급</TH>
                 <TH k="difficulty" width={84}>난이도</TH>
-                <TH k="level2">2차 성장 레벨(행동 검증)</TH>
+                <TH k="level2">2차 성장 레벨<br/>(행동 검증)</TH>
                 <th style={{width:36}}></th>
               </tr></thead>
               <tbody>
@@ -1031,8 +1035,9 @@ function EmployeeDetail({e, deptName, info, onBack, embedded}){
   const level2Color = LEVEL2_COLORS[LEVEL_IDX(e.level2)] || "var(--forest)";
   const DiagCard = ({label, infoText, color, value, highlight}) => (
     <div className={"diag-card"+(highlight?" diag-card-final":"")}>
-      <div className="diag-label">{label}<InfoTip text={infoText}/></div>
+      <div className="diag-label">{label}</div>
       <div className="diag-value" style={{color: value ? color : "#bcc8c3"}}>{value||"–"}</div>
+      {infoText&&<span className="diag-info-corner"><InfoTip text={infoText}/></span>}
     </div>
   );
   return (
@@ -1078,16 +1083,16 @@ function EmployeeDetail({e, deptName, info, onBack, embedded}){
               <div className="diag-group">
                 <div className="diag-group-label" style={{color:"var(--grey-600)"}}>성장 레벨</div>
                 <div className="diag-group-inner arrow">
-                  <DiagCard label="1차 성장 레벨(행동 기준)" infoText={INFO.level1} color="var(--grey-700)" value={e.level1}/>
+                  <DiagCard label={<>1차 성장 레벨<br/>{"(행동 기준)"}</>} infoText={INFO.level1} color="var(--grey-700)" value={e.level1}/>
                   <div className="diag-arrow">→</div>
-                  <DiagCard label="2차 성장 레벨(행동 검증)" infoText={INFO.level2} color={level2Color} value={e.level2} highlight/>
+                  <DiagCard label={<>2차 성장 레벨<br/>{"(행동 검증)"}</>} infoText={INFO.level2} color={level2Color} value={e.level2} highlight/>
                 </div>
               </div>
               <div className="diag-group">
                 <div className="diag-group-label" style={{color:"var(--grey-600)"}}>성장 시그널</div>
                 <div className="diag-group-inner">
-                  <DiagCard label="1차 성장 시그널" infoText={INFO.signal} color="var(--grey-700)" value={e.signal1}/>
-                  <DiagCard label="2차 성장 시그널" infoText={INFO.signal} color="var(--grey-700)" value={e.signal2}/>
+                  <DiagCard label="1차 성장 시그널" infoText={INFO.signal1} color="var(--grey-700)" value={e.signal1}/>
+                  <DiagCard label="2차 성장 시그널" infoText={INFO.signal2} color="var(--grey-700)" value={e.signal2}/>
                 </div>
               </div>
             </div>
@@ -1132,8 +1137,10 @@ function EmployeeDetail({e, deptName, info, onBack, embedded}){
             </div>
             <div className="ai-reason-box">
               <div className="sec-head" style={{marginBottom:8}}>
-                <span style={{color:"var(--emerald)"}}><Spark s={13}/></span>
-                <span className="t-card" style={{color:"var(--heading)"}}>Agent 최복동이 이렇게 진단한 이유는요?</span>
+                <span style={{display:"flex",alignItems:"center",gap:8,flex:1,minWidth:0}}>
+                  <span style={{color:"var(--emerald)"}}><Spark s={13}/></span>
+                  <span className="t-card" style={{color:"var(--heading)"}}>Agent 최복동이 이렇게 진단한 이유는요?</span>
+                </span>
                 <InfoTip text={INFO.reason}/>
               </div>
               <RichText text={e.reason} size="body-sm"/>
@@ -1152,9 +1159,10 @@ function InfoGlossary(){
   const items=[
     ["과제 난이도", INFO.difficulty],
     ["과제 난이도 — 베타 안내", DIFF_BETA],
-    ["1차 / 2차 성장 시그널", INFO.signal],
-    ["1차 성장 레벨(행동 기준)", INFO.level1],
-    ["2차 성장 레벨(행동 검증)", INFO.level2],
+    ["1차 성장 시그널", INFO.signal1],
+    ["2차 성장 시그널", INFO.signal2],
+    ["1차 성장 레벨\n(행동 기준)", INFO.level1],
+    ["2차 성장 레벨\n(행동 검증)", INFO.level2],
     ["Agent 최복동이 이렇게 진단한 이유는요?", INFO.reason],
     ["최복동의 피드백", INFO.feedback + "\n" + FEEDBACK_SUB],
     ["AI 진단 요약", AI_SUMMARY_DESC],
