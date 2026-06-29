@@ -477,9 +477,10 @@ svg, svg text{font-family:inherit;}
   .peer-summary{grid-template-columns:1fr;}
   .ps-value{font-size:28px;}
   .peer-cols{flex-direction:column;}
-  /* 영향력: 평균 카드 위 / 그래프 아래로 세로 배치해 그래프가 보이게 */
-  .impact-body{flex-direction:column;align-items:stretch;gap:14px;}
-  .impact-score-main{align-self:center;width:100%;max-width:240px;}
+  /* 영향력: 평균 카드 위 / 그래프 아래로 세로 배치하고 가운데 정렬 */
+  .impact-body{flex-direction:column;align-items:center;gap:14px;}
+  .impact-score-main{width:100%;max-width:240px;}
+  .impact-dist{width:100%;max-width:300px;}
   /* 강점·배운 점 카드: 배지를 본문 아래(맨 아래)로 */
   .peer-comment.pc-flex,.given-card.given-flex{flex-direction:column;align-items:flex-start;gap:10px;}
 }
@@ -1624,7 +1625,7 @@ function InfoGlossary(){
     ["AI 진단 요약", AI_SUMMARY_DESC],
     ["전사 성장 에너지 맵", "KOAS 구성원들의 5월 성장 로그에서 가장 두드러진 가치입니다. (가중치: 1순위 2점 · 2순위 1점)"],
     ["동료에게 준 영향력 (동료 평가)", "각 동료가 '이 동료의 행동은 나에게 얼마나 자주, 얼마나 깊이 영향을 주었나요?(5점 만점, 높을수록 많은 영향)'에 응답한 점수입니다."],
-    ["동료가 꼽은 KOAS 핵심 가치 (동료 평가)", INFO.signal],
+    ["동료가 꼽은 KOAS 핵심 가치 (동료 평가)", "각 동료가 '이 동료가 가장 잘 보여준 KOAS 핵심 가치는 무엇인가요?'에 복수 선택한 응답을 집계한 결과입니다.\n(① 협업과 소통 ② 고객중심 ③ 대외 경쟁력 ④ 장기적 시각 중 선정)"],
     ["Agent 최복동 소개", POWERED_DESC],
   ];
   return (
