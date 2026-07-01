@@ -443,7 +443,7 @@ svg, svg text{font-family:inherit;}
 .praise-title{margin:0 0 4px;font-size:16px;font-weight:800;color:var(--heading);}
 .praise-sub{margin:0;font-size:14px;font-weight:600;color:var(--muted);line-height:1.5;}
 /* 조언: 키워드(타이틀) + 한 줄 설명 카드 — 2열 병렬 배치 */
-.advice-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 16px;}
+.advice-cards{display:flex;flex-direction:column;gap:10px;margin:0 0 16px;}
 .advice-card{background:#fff;border-radius:10px;padding:14px 16px;}
 .advice-card-key{font-size:14px;font-weight:800;color:#cf760f;margin-bottom:5px;}
 .advice-card-desc{font-size:14px;font-weight:500;color:var(--grey-700);line-height:1.55;}
@@ -1522,7 +1522,7 @@ function EmployeeDetail({e, deptName, info, onBack, embedded, isExec=false}){
               {peer&&peer.n>0&&(
                 <div className="emp-tabs noprint">
                   <button className={activeTab==="log"?"emp-tab active":"emp-tab"} onClick={()=>setActiveTab("log")}><span style={{display:"inline-flex",alignItems:"center",gap:6}}><Clipboard s={15}/>성장 로그</span></button>
-                  <button className={activeTab==="peer"?"emp-tab active":"emp-tab"} onClick={()=>setActiveTab("peer")}><span style={{display:"inline-flex",alignItems:"center",gap:6}}><Users s={15}/>동료 평가</span></button>
+                  <button className={activeTab==="peer"?"emp-tab active":"emp-tab"} onClick={()=>setActiveTab("peer")}><span style={{display:"inline-flex",alignItems:"center",gap:6}}><Users s={15}/>동료 평가{peer.n>0?`(${peer.n})`:""}</span></button>
                 </div>
               )}
               <div className="print-signoff">
